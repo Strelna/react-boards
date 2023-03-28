@@ -20,9 +20,9 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        <div>
-          <h1 className="mb-40">All shoes</h1>
-          <div className="search-block">
+        <div className="d-flex align-center justify-between mb-40">
+          <h1>All shoes</h1>
+          <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
             <input placeholder="Search..." />
           </div>
