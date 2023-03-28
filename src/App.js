@@ -1,6 +1,21 @@
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="overlay">
+        <div className="drawer">
+          <h2>Your cart</h2>
+
+          <div className="cartItem d-flex align-center">
+            <img width={70} src="/img/sneakers/sneakers1.jpg" alt="Sneakers" />
+            <div>
+              <p>Sneakers for Men Nike Blazer Mid Suede</p>
+              <b>25 USD</b>
+            </div>
+            <img src="/img/btn-remove.svg" alt="Remove" />
+          </div>
+        </div>
+      </div>
+
       <header className="d-flex justify-between align-center p-40">
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/logo.png" alt="logo" />
@@ -24,11 +39,15 @@ function App() {
           <h1>All shoes</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
+
             <input placeholder="Search..." />
           </div>
         </div>
         <div className="d-flex">
           <div className="card">
+            <div className="favourite">
+              <img src="/img/heart-unliked.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={112}
