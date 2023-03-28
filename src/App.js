@@ -20,7 +20,13 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        <h1 className="mb-40">All shoes</h1>
+        <div>
+          <h1 className="mb-40">All shoes</h1>
+          <div className="search-block">
+            <img src="/img/search.svg" alt="Search" />
+            <input placeholder="Search..." />
+          </div>
+        </div>
         <div className="d-flex">
           <div className="card">
             <img
