@@ -6,12 +6,16 @@ function App() {
           <h2>Your cart</h2>
 
           <div className="cartItem d-flex align-center">
-            <img width={70} src="/img/sneakers/sneakers1.jpg" alt="Sneakers" />
-            <div>
-              <p>Sneakers for Men Nike Blazer Mid Suede</p>
+            <div
+              style={{ backgroundImage: "url(/img/sneakers/sneakers1.jpg)" }}
+              className="cartItemImg"
+            ></div>
+
+            <div className="mr-10 flex">
+              <p className="mb-5">Sneakers for Men Nike Blazer Mid Suede</p>
               <b>25 USD</b>
             </div>
-            <img src="/img/btn-remove.svg" alt="Remove" />
+            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
           </div>
         </div>
       </div>
