@@ -13,7 +13,7 @@ function Card(props) {
           <span>Price:</span>
           <b>{props.price} USD</b>
         </div>
-        <button className="button">
+        <button className="button" onClick={() => alert(123)}>
           <img width={11} height={11} src="/img/plus.svg" alt="plus" />
         </button>
       </div>
