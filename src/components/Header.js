@@ -9,8 +9,8 @@ function Header() {
           <p className="opacity-5">Shop of the best shoes</p>
         </div>
       </div>
-      <ul>
-        <li className="mr-30">
+      <ul className="d-flex">
+        <li className="mr-20">
           <img width={18} height={18} src="/img/cart.svg" alt="cart" />
           <span>50 USD</span>
         </li>
