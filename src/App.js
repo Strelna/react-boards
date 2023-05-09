@@ -5,8 +5,16 @@ import Header from "./components/Header";
 
 function App() {
   const [items, setItems] = React.useState([]);
-
   const [cartOpened, setCartOpened] = React.useState(false);
+
+  fetch("https://645957564eb3f674df8dba51.mockapi.io/items")
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      setItems(json);
+    });
+
   return (
     <div className="wrapper clear">
       {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
