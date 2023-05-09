@@ -1,13 +1,13 @@
 import React from "react";
 
-function Drawer(props) {
+function Drawer({ onClose, items = [] }) {
   return (
     <div className="overlay">
       <div className="drawer">
         <h2 className="d-flex justify-between mb-30 cu-p">
           Your cart
           <img
-            onClick={props.onClose}
+            onClick={onClose}
             className="removeBtn cu-p"
             src="/img/btn-remove.svg"
             alt="Remove"
@@ -15,40 +15,23 @@ function Drawer(props) {
         </h2>
 
         <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: "url(/img/sneakers/sneakers1.jpg)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="mr-10 flex">
-              <p className="mb-5">Sneakers for Men Nike Blazer Mid Suede</p>
-              <b>25 USD</b>
+          {items.map((obj) => (
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                style={{ backgroundImage: `url(${obj.imageUrl})` }}
+                className="cartItemImg"
+              ></div>
+              <div className="mr-10 flex">
+                <p className="mb-5">{obj.title}</p>
+                <b>{obj.price}USD</b>
+              </div>
+              <img
+                className="removeBtn"
+                src="/img/btn-remove.svg"
+                alt="Remove"
+              />
             </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
-          </div>
-
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: "url(/img/sneakers/sneakers1.jpg)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="mr-10 flex">
-              <p className="mb-5">Sneakers for Men Nike Blazer Mid Suede</p>
-              <b>25 USD</b>
-            </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
-          </div>
-          <div className="cartItem d-flex align-center">
-            <div
-              style={{ backgroundImage: "url(/img/sneakers/sneakers1.jpg)" }}
-              className="cartItemImg"
-            ></div>
-            <div className="mr-10 flex">
-              <p className="mb-5">Sneakers for Men Nike Blazer Mid Suede</p>
-              <b>25 USD</b>
-            </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
-          </div>
+          ))}
         </div>
         <div className="cartTotalBlock">
           <ul>
