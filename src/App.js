@@ -29,8 +29,8 @@ function App() {
   };
 
   const onRemoveItem = (id) => {
-    axios.delete(`https://645957564eb3f674df8dba51.mockapi.io/cart/${id}`);
-    //setCartItems((prev) => [...prev, obj]);
+    //axios.delete(`https://645957564eb3f674df8dba51.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   const onChangeSearchInput = (event) => {

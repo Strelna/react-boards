@@ -14,6 +14,21 @@ function Drawer({ onClose, onRemove, items = [] }) {
           />
         </h2>
 
+        <div className="cartEmpty d-flex align-center justify-center flex-column flex">
+          <img
+            className="mb-20"
+            width="120px"
+            height="120px"
+            src="/img/empty-cart.jpg"
+            alt="empty cart"
+          />
+          <h2>Empty Cart</h2>
+          <p className="opacity-6">Add at least one item</p>
+          <button className="greenButton">
+            <img src="/img/arrow-back.svg" alt="Arrow" /> Return back
+          </button>
+        </div>
+
         <div className="items">
           {items.map((obj) => (
             <div className="cartItem d-flex align-center mb-20">
