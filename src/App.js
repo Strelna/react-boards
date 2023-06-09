@@ -4,6 +4,7 @@ import axios from "axios";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -69,6 +70,7 @@ function App() {
             />
           }
         ></Route>
+        <Route exact path="/favorites" element={<Favorites />}></Route>
       </Routes>
     </div>
   );

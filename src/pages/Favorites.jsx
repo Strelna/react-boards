@@ -2,44 +2,11 @@ function Favorites() {
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        <h1>
-          {searchValue ? `Search by request: "${searchValue}"` : "All trainers"}
-        </h1>
-        <div className="search-block d-flex">
-          <img src="/img/search.svg" alt="Search" />
-          {searchValue && (
-            <img
-              onClick={() => setSearchValue("")}
-              className="clear cu-p"
-              src="/img/btn-remove.svg"
-              alt="Clear"
-            />
-          )}
-
-          <input
-            onChange={onChangeSearchInput}
-            value={searchValue}
-            placeholder="Search..."
-          />
-        </div>
+        <h1>My Favorites</h1>
+        <div className="search-block d-flex"></div>
       </div>
 
-      <div className="d-flex flex-wrap">
-        {items
-          .filter((item) =>
-            item.title.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item, index) => (
-            <Card
-              key={index}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-              onFavorite={onAddToFavorite}
-              onPlus={(obj) => onAddToCart(obj)}
-            />
-          ))}
-      </div>
+      <div className="d-flex flex-wrap">Here I'll save my Favorites</div>
     </div>
   );
 }
