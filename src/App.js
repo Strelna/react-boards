@@ -1,8 +1,9 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
+import Home from "./pages/Home";
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -53,49 +54,22 @@ function App() {
         />
       )}
       <Header onClickCart={() => setCartOpened(true)} />
-      <div className="content p-40">
-        <div className="d-flex align-center justify-between mb-40">
-          <h1>
-            {searchValue
-              ? `Search by request: "${searchValue}"`
-              : "All trainers"}
-          </h1>
-          <div className="search-block d-flex">
-            <img src="/img/search.svg" alt="Search" />
-            {searchValue && (
-              <img
-                onClick={() => setSearchValue("")}
-                className="clear cu-p"
-                src="/img/btn-remove.svg"
-                alt="Clear"
-              />
-            )}
-
-            <input
-              onChange={onChangeSearchInput}
-              value={searchValue}
-              placeholder="Search..."
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Home
+              items={items}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              onChangeSearchInput={onChangeSearchInput}
+              onAddToFavorite={onAddToFavorite}
+              onAddToCart={onAddToCart}
             />
-          </div>
-        </div>
-
-        <div className="d-flex flex-wrap">
-          {items
-            .filter((item) =>
-              item.title.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .map((item, index) => (
-              <Card
-                key={index}
-                title={item.title}
-                price={item.price}
-                imageUrl={item.imageUrl}
-                onFavorite={onAddToFavorite}
-                onPlus={(obj) => onAddToCart(obj)}
-              />
-            ))}
-        </div>
-      </div>
+          }
+        ></Route>
+      </Routes>
     </div>
   );
 }
