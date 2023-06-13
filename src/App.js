@@ -24,6 +24,11 @@ function App() {
       .then((res) => {
         setCartItems(res.data);
       });
+    axios
+      .get("https://645957564eb3f674df8dba51.mockapi.io/favorites")
+      .then((res) => {
+        setFavorites(res.data);
+      });
   }, []);
 
   const onAddToCart = (obj) => {
@@ -69,8 +74,12 @@ function App() {
               onAddToCart={onAddToCart}
             />
           }
-        ></Route>
-        <Route exact path="/favorites" element={<Favorites />}></Route>
+        />
+        <Route
+          exact
+          path="/favorites"
+          element={<Favorites items={favorites} />}
+        />
       </Routes>
     </div>
   );

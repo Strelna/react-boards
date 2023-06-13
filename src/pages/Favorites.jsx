@@ -1,12 +1,23 @@
-function Favorites() {
+import Card from "../components/Card";
+
+function Favorites({ items }) {
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
         <h1>My Favorites</h1>
-        <div className="search-block d-flex"></div>
       </div>
 
-      <div className="d-flex flex-wrap">Here I'll save my Favorites</div>
+      <div className="d-flex flex-wrap">
+        {items.map((item, index) => (
+          <Card
+            key={index}
+            title={item.title}
+            price={item.price}
+            imageUrl={item.imageUrl}
+            favorited={true}
+          />
+        ))}
+      </div>
     </div>
   );
 }
