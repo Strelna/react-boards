@@ -41,9 +41,22 @@ function App() {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const onAddToFavorite = (obj) => {
-    axios.post("https://645957564eb3f674df8dba51.mockapi.io/favorites", obj);
-    setFavorites((prev) => [...prev, obj]);
+  const onAddToFavorite = async (obj) => {
+    try {
+      if (favorites.find((favObj) => favObj.id === obj.id)) {
+        axios.delete(
+          `https://645957564eb3f674df8dba51.mockapi.io/favorites/${obj.id}`
+        );
+      } else {
+        const { data } = await axios.post(
+          "https://645957564eb3f674df8dba51.mockapi.io/favorites",
+          obj
+        );
+        setFavorites((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert("Failed to add to favorites");
+    }
   };
 
   const onChangeSearchInput = (event) => {
@@ -78,7 +91,9 @@ function App() {
         <Route
           exact
           path="/favorites"
-          element={<Favorites items={favorites} />}
+          element={
+            <Favorites items={favorites} onAddToFavorite={onAddToFavorite} />
+          }
         />
       </Routes>
     </div>
